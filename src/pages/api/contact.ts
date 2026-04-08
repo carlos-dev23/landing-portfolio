@@ -1,11 +1,13 @@
 // src/pages/api/contact.ts
 import type { APIRoute } from "astro";
 
+const API_URL = import.meta.env.PUBLIC_API_ROUTE || "http://127.0.0.1:8000";
+
 export const POST: APIRoute = async ({ request }) => {
     const data = await request.json();
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/create/appointments", {
+        const response = await fetch(`${API_URL}/api/create/appointments`, {
             method: "POST",
             headers: {
                 "Authorization": "Bearer " + import.meta.env.NOTION_TOKEN,
