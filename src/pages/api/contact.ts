@@ -15,6 +15,9 @@ export const POST: APIRoute = async ({ request }) => {
             },
             body: JSON.stringify(data),
         });
+        console.log('---- Enviando datos ----');
+        console.log(`${API_URL}/api/create/appointments`);
+        console.log(response);
 
         if (!response.ok) {
             const errorFromLaravel = await response.json();
