@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-primary: #13ec6d;
+  --color-background-light: #f6f8f7;
+  --color-background-dark: #102218;
+  --color-card-dark: #162a20;
+  --color-border-dark: #28392f;
+  --color-text-muted: #9db9a8;
+  --font-display: "Inter", sans-serif;
+}
+
+/* El ::backdrop nativo permite oscurecer todo detrás del modal instantáneamente */
+dialog::backdrop {
+  background: rgba(16, 34, 24, 0.7); /* Usando un color similar a bg-background-dark con opacidad */
+  backdrop-filter: blur(8px);
+}
+
+/* Transición sutil al abrir */
+dialog[open] {
+    animation: zoomIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Scrollbar personalizado para el modal si la pantalla es chica */
+dialog::-webkit-scrollbar {
+  width: 8px;
+}
+dialog::-webkit-scrollbar-track {
+  background: transparent;
+}
+dialog::-webkit-scrollbar-thumb {
+  background-color: var(--color-border-dark);
+  border-radius: 4px;
+}

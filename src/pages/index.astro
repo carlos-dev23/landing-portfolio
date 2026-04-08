@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Aboutme from "../components/Aboutme.astro";
+import Stack from "../components/Stack.astro";
+import CareerJourney from "../components/CareerJourney.astro";
+import Highlights from "../components/Highlights.astro";
+---
+
+<Layout>
+  <main class="flex-1 w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto">
+      <Aboutme />
+      <Stack />
+      <Highlights />
+      <CareerJourney />
+    </div>
+  </main>
+</Layout>

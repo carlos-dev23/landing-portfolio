@@ -1,0 +1,104 @@
+---
+const stack = [
+  {
+    name: "PHP",
+    icon: "php-plain",
+    status: true,
+    bgClass: "bg-[#8892BE]/10 text-[#8892BE]",
+  },
+  {
+    name: "Laravel",
+    icon: "laravel-original",
+    status: true,
+    bgClass: "bg-[#F05340]/10 text-[#F05340]",
+  },
+  {
+    name: "Jetstream",
+    icon: "laraveljetstream-original",
+    status: true,
+    bgClass: "bg-[#6366F1]/10 text-[#6366F1]",
+  },
+  {
+    name: "Livewire",
+    icon: "livewire-plain-wordmark",
+    status: true,
+    bgClass: "bg-[#FB70A9]/10 text-[#FB70A9]",
+  },
+  {
+    name: "JavaScript",
+    icon: "javascript-plain",
+    status: true,
+    bgClass: "bg-[#F7DF1E]/10 text-[#F7DF1E]",
+  },
+  {
+    name: "TailwindCss",
+    icon: "tailwindcss-original",
+    status: true,
+    bgClass: "bg-[#38BDF8]/10 text-[#38BDF8]",
+  },
+  {
+    name: "MySQL",
+    icon: "mysql-original",
+    status: true,
+    bgClass: "bg-[#00758F]/10 text-[#00758F]",
+  },
+  {
+    name: "JQuery",
+    icon: "jquery-plain",
+    status: true,
+    bgClass: "bg-[#0769AD]/10 text-[#0769AD]",
+  },
+  {
+    name: "VueJS",
+    icon: "vuejs-plain",
+    status: false,
+    bgClass: "bg-[#42B883]/10 text-[#42B883]",
+  },
+  {
+    name: "NodeJS",
+    icon: "nodejs-plain-wordmark",
+    status: false,
+    bgClass: "bg-[#339933]/10 text-white",
+  },
+];
+---
+
+<div class="col-span-1 md:col-span-1 rounded-2xl bg-card-dark border border-border-dark p-6 flex flex-col h-full relative overflow-hidden">
+  <div class="flex items-center justify-between mb-6 relative z-10">
+    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary">layers</span>
+      Stack Tecnológico
+    </h3>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 flex-1 overflow-y-auto custom-scrollbar relative z-10">
+    {
+      stack.map((item) => (
+        <div
+          class:list={[
+            "group flex items-center gap-3 p-3 rounded-lg bg-background-dark border transition-all",
+            item.status ? "border-border-dark hover:border-primary/50" : "border-amber-500/20 hover:border-amber-500/50",
+          ]}
+        >
+          <div class="relative">
+            <div class={`w-8 h-8 rounded-md flex items-center justify-center shrink-0 ${item.bgClass}`}>
+              <i class={`devicon-${item.icon}`} />
+            </div>
+            {!item.status && (
+              <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
+                <span class="hidden md:block absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 text-[10px] font-semibold text-amber-400 bg-background-dark border border-amber-500/30 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                  Aprendiendo
+                </span>
+              </span>
+            )}
+          </div>
+          <div class="min-w-0 flex flex-col justify-center">
+            <p class:list={["text-sm font-bold transition-colors truncate", item.status ? "text-white group-hover:text-primary" : "text-white/70 group-hover:text-amber-400"]}>{item.name}</p>
+            {!item.status && <span class="md:hidden text-[10px] font-semibold text-amber-400 truncate opacity-90 mt-0.5">Aprendiendo</span>}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

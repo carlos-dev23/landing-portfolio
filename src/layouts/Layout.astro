@@ -1,0 +1,40 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/index.css";
+
+import ContactModal from "../components/ContactModal.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = "Carlos Torres | Laravel Developer", description = "Portafolio de Carlos Torres, desarrollador Laravel & Full Stack." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/laravel-icon.svg" />
+    <link rel="icon" href="/laravel-icon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <!-- Icons Devico -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <!-- Google Typography and Icons -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-background-dark font-display antialiased text-white selection:bg-primary selection:text-background-dark min-h-screen flex flex-col">
+    <Header />
+    <slot />
+    <Footer />
+    <ContactModal />
+  </body>
+</html>

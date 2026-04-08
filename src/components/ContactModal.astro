@@ -1,0 +1,467 @@
+<dialog
+  id="contactModal"
+  class="backdrop:bg-background-dark/90 bg-transparent m-auto p-0 w-[95%] max-w-2xl relative mx-auto rounded-2xl outline-none"
+  style="margin: auto; max-height: 90vh; overflow-y: auto;"
+>
+  <div class="w-full flex justify-center relative p-4 lg:p-6">
+    <button
+      id="closeContactModal"
+      class="absolute top-2 right-2 lg:top-0 lg:right-0 size-10 rounded-full bg-border-dark text-white flex items-center justify-center hover:bg-red-500/20 hover:text-red-500 transition-colors z-50 border border-border-dark/50 cursor-pointer"
+    >
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <div class="bg-card-dark border border-border-dark rounded-xl shadow-lg overflow-hidden flex flex-col w-full h-full mt-6 lg:mt-0">
+      <div class="p-5 md:p-6 border-b border-border-dark bg-black/20">
+        <div class="flex justify-between items-start gap-4">
+          <div>
+            <h2 class="text-2xl font-bold tracking-tight text-white mb-1" id="title-modal">Agendar Cita</h2>
+            <p class="text-text-muted text-sm border-0" id="subtitle-modal">Por favor, ingresa tus datos y selecciona tu horario.</p>
+          </div>
+          <div class="hidden sm:flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <span class="material-symbols-outlined text-[24px]">event_available</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-5 md:p-6 flex flex-col justify-center">
+        <form action="#" id="contactForm" class="flex flex-col gap-4 w-full hidden">
+          <div class="flex flex-col gap-1.5">
+            <label class="text-sm font-medium text-white flex items-center gap-2" for="name">
+              Nombre Completo <span class="text-red-400">*</span>
+            </label>
+            <div class="relative group">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-text-muted text-[20px]">person</span>
+              </div>
+              <input
+                class="block w-full pl-10 pr-3 py-2.5 rounded-lg border border-border-dark bg-[#111814] text-white placeholder:text-text-muted/50 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm outline-none"
+                id="name"
+                placeholder="Ej. Juan Pérez"
+                required=""
+                type="text"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-white flex items-center gap-2" for="date">
+                Fecha <span class="text-red-400">*</span>
+              </label>
+              <div class="relative group">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none h-full pb-1">
+                  <span class="material-symbols-outlined text-text-muted text-[20px]">calendar_today</span>
+                </div>
+                <input
+                  class="block w-full pl-10 pr-3 py-2.5 rounded-lg border border-border-dark bg-[#111814] text-white focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm outline-none scheme-dark"
+                  id="date"
+                  required=""
+                  type="date"
+                />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-white flex items-center gap-2" for="time">
+                Hora <span class="text-red-400">*</span>
+              </label>
+              <div class="relative group">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none h-full pb-1">
+                  <span class="material-symbols-outlined text-text-muted text-[20px]">schedule</span>
+                </div>
+                <input
+                  class="block w-full pl-10 pr-3 py-2.5 rounded-lg border border-border-dark bg-[#111814] text-white focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm outline-none scheme-dark"
+                  id="time"
+                  required=""
+                  type="time"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-white" for="company">Empresa</label>
+              <div class="relative group">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="material-symbols-outlined text-text-muted text-[20px]">business</span>
+                </div>
+                <input
+                  class="block w-full pl-10 pr-3 py-2.5 rounded-lg border border-border-dark bg-[#111814] text-white placeholder:text-text-muted/50 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm outline-none"
+                  id="company"
+                  placeholder="Ej. Acme Corp"
+                  type="text"
+                  required=""
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-white" for="position">Cargo</label>
+              <div class="relative group">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="material-symbols-outlined text-text-muted text-[20px]">badge</span>
+                </div>
+                <input
+                  class="block w-full pl-10 pr-3 py-2.5 rounded-lg border border-border-dark bg-[#111814] text-white placeholder:text-text-muted/50 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm outline-none"
+                  id="position"
+                  placeholder="Ej. Product Lead"
+                  type="text"
+                  required=""
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="text-sm font-medium text-white flex items-center gap-2" for="phone">
+              Teléfono <span class="text-red-400">*</span>
+            </label>
+            <div class="relative group">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-text-muted text-[20px]">call</span>
+              </div>
+              <input
+                class="block w-full pl-10 pr-3 py-2.5 rounded-lg border border-border-dark bg-[#111814] text-white placeholder:text-text-muted/50 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm font-mono outline-none"
+                id="phone"
+                placeholder="Ej. 5512345678"
+                required=""
+                type="tel"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="text-sm font-medium text-white" for="notes">Notas (Opcional)</label>
+            <textarea
+              class="block w-full p-3 rounded-lg border border-border-dark bg-[#111814] text-white placeholder:text-text-muted/50 focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-sm resize-none outline-none"
+              id="notes"
+              placeholder="Describe brevemente tus necesidades o el proyecto..."
+              rows="2"></textarea>
+          </div>
+
+          <div class="mt-2">
+            <button class="btn-encourage w-full bg-primary text-background-dark font-black h-12 rounded-lg flex items-center justify-center gap-2 text-base cursor-pointer" type="submit">
+              <span class="material-symbols-outlined text-[22px]">check_circle</span>
+              Agendar Cita
+            </button>
+          </div>
+        </form>
+        <div id="appointmentSummary" class="hidden flex-col gap-6 w-full py-4 text-sm animate-fade-in">
+          <div class="text-center space-y-2">
+            <div class="w-16 h-16 bg-primary/20 border border-primary/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="material-symbols-outlined text-primary text-[32px]">event_available</span>
+            </div>
+            <h4 class="text-xl font-bold text-white tracking-tight">¡Solicitud Registrada!</h4>
+            <p class="text-text-muted leading-relaxed">Gracias por tu interés. Ya hemos agendado tu espacio y nos comunicaremos contigo próximamente al teléfono proporcionado.</p>
+          </div>
+
+          <!-- Tarjeta de Resumen -->
+          <div class="bg-[#111814] border border-border-dark rounded-xl p-5 space-y-4 relative overflow-hidden">
+            <!-- Efecto sutil de fondo -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mt-10 -mr-10 pointer-events-none"></div>
+
+            <div class="grid grid-cols-2 gap-4 relative z-10">
+              <div>
+                <p class="text-[11px] uppercase tracking-wider font-bold text-text-muted mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">person</span> Nombre</p>
+                <p class="text-white font-medium truncate" id="sum-name">-</p>
+              </div>
+              <div>
+                <p class="text-[11px] uppercase tracking-wider font-bold text-text-muted mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">call</span> Teléfono</p>
+                <p class="text-white font-medium" id="sum-phone">-</p>
+              </div>
+              <div>
+                <p class="text-[11px] uppercase tracking-wider font-bold text-text-muted mb-1 flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">calendar_month</span> Fecha
+                </p>
+                <p class="text-white font-medium" id="sum-date">-</p>
+              </div>
+              <div>
+                <p class="text-[11px] uppercase tracking-wider font-bold text-text-muted mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> Hora</p>
+                <p class="text-white font-medium" id="sum-time">-</p>
+              </div>
+              <div class="col-span-2">
+                <p class="text-[11px] uppercase tracking-wider font-bold text-text-muted mb-1 flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">work</span> Empresa / Puesto
+                </p>
+                <p class="text-white font-medium truncate" id="sum-company">-</p>
+              </div>
+            </div>
+          </div>
+
+          <button
+            id="closeSummaryBtn"
+            class="bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white font-semibold py-3 rounded-lg transition-all mt-2 text-center w-full cursor-pointer"
+          >
+            Entendido
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  @keyframes encouragePulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(19, 236, 109, 0.4);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px 5px rgba(19, 236, 109, 0.15);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(19, 236, 109, 0);
+    }
+  }
+
+  .btn-encourage {
+    animation: encouragePulse 2.5s infinite ease-in-out;
+    transition: all 0.2s ease;
+  }
+
+  .btn-encourage:hover {
+    animation: none;
+    transform: scale(1.02);
+    background-color: #0fd660;
+    box-shadow: 0 0 20px 5px rgba(19, 236, 109, 0.2);
+  }
+
+  .btn-encourage:active {
+    transform: scale(0.98);
+  }
+</style>
+
+<script>
+  import { locales } from "astro:schema";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const dialog = document.getElementById("contactModal") as HTMLDialogElement;
+    const closeBtn = document.getElementById("closeContactModal");
+    const openBtns = document.querySelectorAll("#openContactModalBtn, .open-contact-modal");
+    const closeSummaryBtn = document.getElementById("closeSummaryBtn");
+
+    if (dialog && closeBtn) {
+      openBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          checkCacheAndRender(); // Revisar si ya hay cita antes de mostrar modal
+          dialog.showModal();
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      closeBtn.addEventListener("click", () => dialog.close());
+      if (closeSummaryBtn) closeSummaryBtn.addEventListener("click", () => dialog.close());
+
+      dialog.addEventListener("click", (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+
+      dialog.addEventListener("close", () => {
+        document.body.style.overflow = "";
+      });
+    }
+
+    const form = document.getElementById("contactForm");
+    if (form) {
+      form.addEventListener("submit", sendForm);
+    }
+  });
+
+  function checkCacheAndRender() {
+    const cached = localStorage.getItem("appointmentData");
+    const form = document.getElementById("contactForm");
+    const summary = document.getElementById("appointmentSummary");
+
+    if (cached && form && summary) {
+      const payload = JSON.parse(cached);
+      showSummaryUI(payload, form, summary);
+    } else if (form && summary) {
+      form.classList.remove("hidden");
+      summary.classList.add("hidden");
+      summary.classList.remove("flex");
+    }
+  }
+
+  function showSummaryUI(payload: any, form: HTMLElement | null, summary: HTMLElement | null) {
+    if (!form || !summary) return;
+
+    form.classList.add("hidden");
+    summary.classList.remove("hidden");
+    summary.classList.add("flex");
+
+    const setTxt = (id: string, text: string) => {
+      const el = document.getElementById(id);
+      if (el) el.innerText = text;
+    };
+
+    setTxt("sum-name", payload.name);
+    setTxt("sum-phone", payload.phone);
+    setTxt("sum-date", payload.date);
+    setTxt("sum-time", payload.time);
+    setTxt("sum-company", `${payload.company || "N/A"} / ${payload.position || "N/A"}`);
+  }
+
+  function sendForm(event: Event) {
+    event.preventDefault();
+
+    const fields = {
+      name: document.getElementById("name") as HTMLInputElement,
+      date: document.getElementById("date") as HTMLInputElement,
+      time: document.getElementById("time") as HTMLInputElement,
+      company: document.getElementById("company") as HTMLInputElement,
+      position: document.getElementById("position") as HTMLInputElement,
+      phone: document.getElementById("phone") as HTMLInputElement,
+      notes: document.getElementById("notes") as HTMLInputElement,
+    };
+
+    document.querySelectorAll(".error-msg").forEach((el) => el.remove());
+    Object.values(fields).forEach((input) => (input.style.borderColor = ""));
+
+    let hasErrors = false;
+
+    const showError = (field: HTMLInputElement, message: string) => {
+      hasErrors = true;
+      field.style.borderColor = "#ef4444";
+
+      const errorMsg = document.createElement("span");
+      errorMsg.className = "text-red-400 text-[13px] mt-1 error-msg font-medium tracking-tight block";
+      errorMsg.innerText = message;
+
+      field.parentElement?.parentElement?.appendChild(errorMsg);
+    };
+
+    if (fields.name.value.trim().length < 5) {
+      showError(fields.name, "Por favor incluye tu nombre completo.");
+    }
+
+    const cleanPhone = fields.phone.value.replace(/\D/g, ""); // Limpiar a solo números
+    if (cleanPhone.length != 10) {
+      showError(fields.phone, "El teléfono debe tener mínimo 10 dígitos (Ej: 5512345678).");
+    }
+
+    if (!fields.date.value) {
+      showError(fields.date, "Selecciona una fecha.");
+    } else {
+      const selectedDate = new Date(fields.date.value + "T00:00:00");
+      if (selectedDate.getDay() === 0 || selectedDate.getDay() === 6) {
+        showError(fields.date, "No puedes agendar una fecha en fin de semana.");
+      }
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (selectedDate < today) {
+        showError(fields.date, "No puedes agendar una fecha pasada.");
+      }
+    }
+
+    if (!fields.time.value) {
+      showError(fields.time, "Selecciona una hora.");
+    } else {
+      const [hourStr, minuteStr] = fields.time.value.split(":");
+      const hour = parseInt(hourStr, 10);
+      const minutes = parseInt(minuteStr, 10);
+
+      if (hour < 10 || hour > 18 || (hour === 18 && minutes > 0)) {
+        showError(fields.time, "El horario disponible es entre las 10:00 AM y las 6:00 PM.");
+      }
+    }
+
+    if (!fields.company.value.trim()) {
+      showError(fields.company, "Por favor incluye el nombre de tu empresa.");
+    }
+    if (!fields.position.value.trim()) {
+      showError(fields.position, "Por favor incluye el nombre de tu puesto.");
+    }
+
+    if (hasErrors) return;
+
+    const payload = {
+      name: fields.name.value.trim(),
+      date: fields.date.value,
+      time: fields.time.value,
+      company: fields.company.value.trim() || null,
+      position: fields.position.value.trim() || null,
+      phone: cleanPhone,
+      notes: fields.notes.value.trim() || null,
+    };
+    sendData(payload);
+  }
+
+  async function sendData(payload: object) {
+    const submitBtn = document.querySelector("#contactForm button[type='submit']") as HTMLButtonElement;
+    const originalText = submitBtn ? submitBtn.innerHTML : "";
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="animate-spin material-symbols-outlined text-[20px]">sync</span> Procesando...';
+      submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const rawText = await response.text();
+      console.log("Respuesta del servidor:", rawText);
+
+      if (!response.ok) {
+        console.error("El Servidor respondió con un error:", rawText);
+        if (rawText.includes("<html")) throw new Error("El sistema se encuentra en mantenimiento temporal. Por favor, intenta de nuevo más tarde.");
+
+        const parsedError = JSON.parse(rawText);
+        throw new Error(parsedError.error || "Datos inválidos");
+      }
+
+      const data = JSON.parse(rawText);
+      if (data.status === "exists") {
+        localStorage.setItem("appointmentData", JSON.stringify(data.data));
+      } else {
+        // Guardar inmediatemente en el caché
+        localStorage.setItem("appointmentData", JSON.stringify(payload));
+      }
+
+      // Transicionamos de golpe al mostrar el Resumen instantáneamente
+      checkCacheAndRender();
+    } catch (e: any) {
+      console.error(e.message);
+      messages(e.message, true);
+    } finally {
+      // Sin importar si fue éxito o error, restablecemos el botón
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+      }
+    }
+  }
+
+  function messages(message: string, isError = true) {
+    const alertBox = document.getElementById("form-alert");
+    if (!alertBox) return;
+
+    alertBox.innerHTML = `
+      <span class="material-symbols-outlined text-[20px] shrink-0">${isError ? "error" : "check_circle"}</span>
+      <span>${message}</span>
+    `;
+
+    alertBox.className = `rounded-lg p-3 text-sm font-medium flex items-center gap-2 transition-all ${
+      isError ? "bg-red-500/10 text-red-400 border border-red-500/20" : "bg-primary/10 text-primary border border-primary/20"
+    }`;
+
+    // Ocultar la alerta automáticamente después de 6 segundos
+    setTimeout(() => {
+      alertBox.classList.add("hidden");
+    }, 10000);
+  }
+</script>

@@ -1,0 +1,73 @@
+---
+const stats = [
+  { value: "1000+", label: "usuarios atendidos diariamente con sistemas que construí" },
+  { value: "~20", label: "cierres de venta al día automatizados con IA" },
+  { value: "3+", label: "proyectos en producción mantenidos simultáneamente" },
+];
+
+const projects = [
+  {
+    badge: "IA + AUTOMATIZACIÓN",
+    badgeColor: "bg-blue-400/10 text-blue-300 border-blue-400/20",
+    title: "Agente de ventas por WhatsApp",
+    description: "Sistema conversacional con IA para gestión de clientes y cierres automáticos, utiliznado GPT Threads para reducir consumo de tokens significativamente.",
+  },
+  {
+    badge: "API & INTEGRACIONES",
+    badgeColor: "bg-emerald-400/10 text-emerald-300 border-emerald-400/20",
+    title: "Gestión multi-cuenta Mercado Libre",
+    description:
+      "Sistema centralizado para publicaciones simultáneas en múltiples cuentas vía API, con notificaciones automáticas, contestación automatica de preguntas,gestión y seguimiento de ventas.",
+  },
+  {
+    badge: "INFRAESTRUCTURA",
+    badgeColor: "bg-amber-400/10 text-amber-300 border-amber-400/20",
+    title: "Migración completa AWS → GCP",
+    description: "Migración integral de infraestructura garantizando integridad de datos, cero downtime y continuidad operativa para toda la cartera de proyectos.",
+  },
+  {
+    badge: "SISTEMAS OPERATIVOS",
+    badgeColor: "bg-pink-400/10 text-pink-300 border-pink-400/20",
+    title: "Chat en vivo",
+    description: "Sistema de atención a clientes con soporte multilada para extranjeros, análisis de flujo de usuario y panel de control para gestión, seguimiento y atención de solicitudes.",
+  },
+  {
+    badge: "API & LÓGICA DE NEGOCIO",
+    badgeColor: "bg-[#6366F1]/10 text-[#6366F1] border-[#6366F1]/20",
+    title: "Calculadora de compra-venta de Oro",
+    description: "Herramienta que evalúa peso y kilataje, aplica descuentos y calcula precio de compra y venta en tiempo real para joyerías y casas de empeño.",
+  },
+];
+---
+
+<div class="col-span-1 md:col-span-3 rounded-2xl bg-card-dark border border-border-dark p-6 md:p-8 flex flex-col relative overflow-hidden">
+  <!-- Stats -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 gap-y-10 mb-10 relative z-10">
+    {
+      stats.map((stat) => (
+        <div class="flex flex-col gap-2">
+          <span class="text-4xl md:text-5xl text-white font-serif tracking-tight">{stat.value}</span>
+          <span class="text-sm text-text-muted/90 leading-tight max-w-50">{stat.label}</span>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="w-full h-px bg-border-dark mb-8 relative z-10"></div>
+
+  <h4 class="text-xs font-bold tracking-[0.2em] text-text-muted uppercase mb-6 relative z-10">LO QUE HE CONSTRUIDO</h4>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
+    {
+      projects.map((project) => (
+        <div class="rounded-xl border border-border-dark/80 bg-background-dark/50 p-6 flex flex-col gap-4 group hover:border-primary/40 hover:bg-background-dark transition-all duration-300">
+          <span class={`text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded w-fit border ${project.badgeColor}`}>{project.badge}</span>
+          <div class="flex flex-col gap-2">
+            <h5 class="text-white font-bold text-[17px] leading-snug group-hover:text-primary transition-colors">{project.title}</h5>
+            <p class="text-sm text-text-muted/80 group-hover:text-white transition-colors leading-relaxed font-medium">{project.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

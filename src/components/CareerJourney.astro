@@ -1,0 +1,124 @@
+---
+const jobs = [
+  {
+    active: true,
+    icon: "work",
+    title: "Desarrollador Full Stack Laravel",
+    company: "MiEmpeño",
+    period: "Febrero 2024 - Enero 2026",
+    description: [
+      "Diseñé y desarrollé un agente de ventas automatizado mediante WhatsApp con inteligencia artificial, capaz de gestionar conversaciones naturales y cerrar ventas, atendiendo más de 30 usuarios simultaneamente.",
+      "Implementé flujos asíncronos y automatizaciones con IA para reemplazar procesos manuales, mejorando significativamente la eficiencia operativa.",
+      {
+        title: "Sistema de gestión de ventas y notificaciones (Mercado Libre)",
+        items: [
+          "Desarrollé un sistema centralizado de ventas integrando la API de Mercado Libre, permitiendo la gestión multi-cuenta, publicaciones automatizadas y notificaciones en tiempo real.",
+          "Implementé un flujo automatizado de gestión de preguntas vía WhatsApp, centralizando consultas de productos con contexto completo (imágenes, detalles y pregunta). Los vendedores pueden responder directamente mediante reply desde WhatsApp, publicando automáticamente la respuesta en la plataforma sin necesidad de iniciar sesión.",
+          "Integré un agente inteligente que aprende de las respuestas de los vendedores, automatizando la atención de preguntas frecuentes.",
+          "Reduje los tiempos de respuesta entre un 50% y 75%, incrementando la conversión y optimizando la operación comercial.",
+        ],
+      },
+      "Lideré la migración de infraestructura desde AWS hacia Google Cloud Platform (GCP), asegurando la integridad de datos y la continuidad del sistema.",
+      {
+        title: "Mantuve y escalé sistemas clave del negocio, incluyendo:",
+        items: [
+          "API para gestión de solicitudes de empeño y compra",
+          "Calculadora de oro (evaluación por peso, kilataje y lógica de precios)",
+          "Landing pages enfocadas en conversión y optimización del flujo de usuarios",
+          "Panel administrativo y sistemas internos",
+        ],
+      },
+      {
+        title: "Optimicé un sistema de chat en vivo mediante:",
+        items: [
+          "Implementación de soporte multi-idioma para usuarios internacionales",
+          "Migración de ChatGPT Completions a Threads, reduciendo el consumo de tokens y costos operativos",
+          "Soporte a alto volumen de interacciones con impacto directo en ventas (~10 cierres diarios aprox)",
+        ],
+      },
+    ],
+  },
+  {
+    active: false,
+    icon: "code",
+    title: "Desarrollador Full Stack (Becario)",
+    company: "Hello México",
+    period: "Agosto 2022 - Diciembre 2024",
+    description: [
+      "Lideré el desarrollo del proyecto Dinero Inmediato desde su planeación, definiendo el Product Backlog, wireframes y arquitectura del sistema.",
+      "Desarrollé la plataforma Full Stack utilizando Laravel 8 y Livewire, integrando pagos recurrentes mediante OpenPay.",
+      "Diseñé una solución automatizada para el procesamiento masivo de datos en Excel, eliminando procesos manuales de validación y reduciendo tiempos operativos.",
+      "Administré el ciclo de vida de aplicaciones en entornos como DigitalOcean, Heroku y HostGator, incluyendo despliegues y gestión de respaldos críticos.",
+      "Participé en la gestión ágil de proyectos bajo metodología Scrum, ejecutando pruebas y colaborando en sesiones de Sprint Planning.",
+      "Implementé y configuré herramientas de email marketing, además de realizar ajustes técnicos en proyectos desarrollados con GDevelop.",
+    ],
+  },
+];
+---
+
+<div class="col-span-1 md:col-span-3 rounded-2xl bg-card-dark border border-border-dark p-6 md:p-8 flex flex-col relative overflow-hidden">
+  <div class="flex items-center justify-between mb-8 z-10">
+    <div>
+      <h3 class="text-2xl font-bold text-white mb-1">Trayectoria Profesional</h3>
+      <p class="text-text-muted text-sm">3+ años de experiencia</p>
+    </div>
+  </div>
+  <div class="relative flex flex-col gap-0 z-10 h-full max-w-5xl">
+    {
+      jobs.map((job, index) => (
+        <div class="relative flex gap-6 pb-12 group">
+          {/* Línea conectora vertical */}
+          <div class:list={["absolute left-5 top-0 w-0.5 bg-linear-to-b", job.active ? "h-full from-primary to-primary/20" : "h-16 from-primary/20 to-transparent"]} />
+
+          {/* Icono circular */}
+          <div
+            class:list={[
+              "relative z-10 mt-1.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 bg-background-dark",
+              job.active ? "border-primary shadow-[0_0_15px_rgba(19,236,109,0.3)]" : "border-border-dark group-hover:border-primary/50 transition-colors",
+            ]}
+          >
+            <span class:list={["material-symbols-outlined text-[20px]", job.active ? "text-primary" : "text-text-muted group-hover:text-primary transition-colors"]}>{job.icon}</span>
+          </div>
+
+          {/* Contenido */}
+          <div class="flex flex-col pt-1 w-full">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+              <div>
+                <h4 class:list={["text-lg font-bold text-white transition-colors", job.active ? "group-hover:text-primary" : "group-hover:text-white"]}>{job.title}</h4>
+                <p class="text-sm font-medium text-text-muted">{job.company}</p>
+              </div>
+              <span
+                class:list={[
+                  "inline-flex w-fit items-center rounded-full px-2.5 py-0.5 text-xs",
+                  job.active ? "bg-primary/10 font-bold text-primary border border-primary/20" : "bg-border-dark font-medium text-text-muted",
+                ]}
+              >
+                {job.period}
+              </span>
+            </div>
+            <div class="text-sm text-text-muted/80 leading-relaxed mb-4 max-w-4xl space-y-4">
+              {job.description.map((block) =>
+                typeof block === "string" ? (
+                  <p>{block}</p>
+                ) : (
+                  <div>
+                    <p>{block.title}</p>
+                    <ul class="list-disc pl-5 mt-1 space-y-1 text-white/80">
+                      {block.items.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ),
+              )}
+            </div>
+            <button class="open-contact-modal flex items-center gap-2 px-3 py-1.5 rounded bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/30 transition-all w-fit group/btn hover:cursor-pointer">
+              <span class="material-symbols-outlined text-text-muted text-[16px] group-hover/btn:text-primary">description</span>
+              <span class="text-xs font-medium text-text-muted group-hover/btn:text-white">Ver Carta de Recomendación</span>
+            </button>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
