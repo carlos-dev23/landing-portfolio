@@ -13,8 +13,11 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^10.0.4",
+    "@tailwindcss/postcss": "^4.2.2",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.9",
     "tailwindcss": "^4.2.2"
   }
 }
