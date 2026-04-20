@@ -1,0 +1,83 @@
+---
+const projects = [
+  {
+    featured: true,
+    title: "GuitarLA — Tienda online",
+    description: "Tienda de guitarras con catálogo, carrito de compras y lógica de precios. Vue 3 + Composition API.",
+    demo: "https://vuejs-guitarla.web.app",
+    stack: ["Vue 3", "vite js", "Firebase"],
+    img: "img/vuejs-guitarla.png",
+  },
+  {
+    featured: false,
+    title: "Social Media App",
+    description: "Aplicación de red social con flujo completo de usuario — publicaciones, interacciones y perfiles. Interfaz reactiva enfocada en UX y performance.",
+    demo: "https://social-media-jcst.web.app",
+    img: "img/social-media.png",
+    stack: ["html", "TailwindCSS"],
+  },
+  {
+    featured: false,
+    title: "Firefox New Tab Clone",
+    description: "Recreación de la nueva pestaña de Firefox con widgets, accesos directos y diseño fiel al original.",
+    img: "img/firefox-jcst.png",
+    demo: "https://firefox-jcst.web.app",
+    stack: ["html", "Tailwind CSS"],
+  },
+  {
+    featured: true,
+    title: "JuegasHF — Plataforma de juegos",
+    description: "Colección de minijuegos interactivos con lógica reactiva, animaciones CSS y manejo de eventos del DOM.",
+    demo: "https://juegashf.web.app",
+    img: "img/juegashf.png",
+    stack: ["Firebase", "GDevelop"],
+  },
+];
+---
+
+<div class="col-span-1 md:col-span-3 rounded-2xl bg-card-dark border border-border-dark p-6 md:p-8 flex flex-col">
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h3 class="text-2xl font-bold text-white mb-1">Proyectos Frontend</h3>
+      <p class="text-text-muted text-sm">side projects</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    {
+      projects.map((project) => (
+        <div
+          class:list={[
+            "group rounded-xl border border-border-dark bg-background-dark overflow-hidden flex flex-col transition-colors hover:border-border-dark/80",
+            project.featured && "md:col-span-2",
+          ]}
+        >
+          <div class="w-full h-36 bg-black/20 border-b border-border-dark overflow-hidden">
+            <img src={`/${project.img}`} alt={project.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+          </div>
+
+          <div class="p-4 flex flex-col gap-2 flex-1">
+            <div class="flex items-start justify-between gap-3">
+              <h4 class="text-white font-semibold text-sm">{project.title}</h4>
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-1 text-primary text-xs font-mono border border-primary/20 bg-primary/10 px-2 py-1 rounded-md hover:bg-primary/20 transition-colors whitespace-nowrap"
+              >
+                <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+                Demo
+              </a>
+            </div>
+            <p class="text-text-muted text-xs leading-relaxed">{project.description}</p>
+            <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+              {project.stack.map((tech) => (
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border border-border-dark text-text-muted">{tech}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
